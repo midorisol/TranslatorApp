@@ -1,17 +1,36 @@
-<form [formGroup]="contentForm" (ngSubmit)="submitted()">
+<form [formGroup]="contentForm" (ngSubmit)="translate()">
+  <div>
+    <p>
+      <label for="automatic">Automatic Language detection</label>
+      <input type="checkbox" id="automatic" formControlName="automatic">
+    </p>
   <p>
-    <label for="country"></label>
-    <select id="country" formControlName="country">
-      <option *ngFor="let c of countryList" [ngValue]="c.code">{{c.name}}
+    <label for="source"></label>
+    <select id="source" formControlName="source">
+      <option *ngFor="let c of country" [ngValue]="c.code">{{c.name}}
       </option>
     </select>
   </p>
 <p>
-  <label for="translatetext">Translate Text</label>
-  <input type="text" id="translatetext" formControlName="translatedText">
+  <label for="q">Translate Text</label>
+  <input type="text" id="q" formControlName="q">
 </p>
-
+  </div>
+  <div>
+    <p>
+      <label for="target"></label>
+      <select id="target" formControlName="target">
+        <option *ngFor="let c of country" [ngValue]="c.code">{{c.name}}
+        </option>
+      </select>
+    </p>
+    <p>Translated text:</p>
+    <p>{{responseText?.translatedText}}</p>
+  </div>
   <p>
-    <button (click)="submitted()">Submit</button>
+    <button (click)="translate()">Submit</button>
+  </p>
+  <p>
+    <button (click)="autoTranslate()">Automatic translate</button>
   </p>
 </form>

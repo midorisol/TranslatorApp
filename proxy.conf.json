@@ -1,0 +1,10 @@
+{
+  "/translate": {
+    "target": "https://libretranslate.de",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/translate": ""
+    }
+  }
+}
