@@ -1,0 +1,33 @@
+<form [formGroup]="contentForm">
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Registration</mat-card-title>
+  </mat-card-header>
+  <div class="registration-form">
+  <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" placeholder="Name" formControlName="name" [(ngModel)]="name">
+    <mat-error *ngIf="contentForm.controls['name'].errors">
+      Name must be provided!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="text" placeholder="Email" formControlName="email">
+    <mat-error *ngIf="contentForm.controls['email'].errors">
+      Email must be provided!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+      <mat-label>Tel. Number</mat-label>
+      <input matInput type="tel" placeholder="Tel. Number" formControlName="telnumber">
+    <mat-error *ngIf="contentForm.controls['telnumber'].errors">
+      Telephone number must be provided!
+    </mat-error>
+  </mat-form-field>
+  </div>
+<mat-card-actions>
+  <button mat-button (click)="login()">Login</button>
+</mat-card-actions>
+</mat-card>
+</form>
