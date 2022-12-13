@@ -6,18 +6,20 @@ import {map, Observable, switchMap} from "rxjs";
 import {StorageKeys} from "../../shared/utils";
 import {LoginService} from "./login.service";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TranslateService {
   private _baseUrl = `${environment.baseUrl}`;
-  public translationCount:number = 0;
+
 
   constructor(
     private http: HttpClient,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar,
   ) {}
 
   countryList(){
@@ -31,6 +33,7 @@ export class TranslateService {
     const loggedInUser = this.loginService.loggedInUser;
     if (!loggedInUser && translateCount > 3) {
       this.router.navigateByUrl('/registration');
+      this.snackBar.open('Please register you have used your three translations!', 'OK', {duration: 5000})
     }
 
     const formData = new FormData();
@@ -40,7 +43,7 @@ export class TranslateService {
     formData.append("format", "text");
     return this.http.post(`${this._baseUrl}/translate`, formData).pipe(
       map((result: any) => result.translatedText)
-    );
+    )
   }
 
   autoTranslate(text: string, target: string): Observable<any> {

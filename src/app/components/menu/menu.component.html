@@ -1,6 +1,6 @@
 <mat-toolbar>
   <div>
-    <span>Translator Its just text not and IMG</span>
+    <img [src]="logoSrc">
   </div>
   <button *ngIf="!isLoggedIn" mat-button [routerLink]="'/registration'">Registration</button>
   <button *ngIf="isLoggedIn" mat-button (click)="logout()">Log Out</button>
