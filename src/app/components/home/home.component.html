@@ -1,5 +1,7 @@
-<form class="translate-form" [formGroup]="contentForm">
-  <mat-form-field>
+<form [formGroup]="contentForm">
+  <div class="translate-form">
+<div class="flex-child">
+  <mat-form-field class="first">
     <mat-label>Source language</mat-label>
     <mat-select formControlName="source" [disabled]="detectLanguage">
       <mat-option *ngFor="let country of countries" [value]="country.code">
@@ -7,7 +9,12 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  
+  <mat-form-field>
+    <mat-label>Text</mat-label>
+    <input class="text" matInput formControlName="text">
+  </mat-form-field>
+</div>
+  <div class="flex-child">
   <mat-form-field>
     <mat-label>Target language</mat-label>
     <mat-select formControlName="target">
@@ -16,17 +23,16 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  
-  <mat-form-field>
-    <mat-label>Text</mat-label>
-    <input matInput formControlName="text">
-  </mat-form-field>
-  
-  <mat-checkbox color="primary" formControlName="automatic">
-    Detect language
-  </mat-checkbox>
-
-  <p *ngIf="responseText">Result: {{ responseText }}</p>
-  
-  <button (click)="translate()" mat-raised-button color="primary">translate</button>
+    <mat-checkbox color="primary" formControlName="automatic">
+      Detect language
+    </mat-checkbox>
+    <div class="response-wrap">
+    <span>Response:{{ responseText }}</span>
+    <p *ngIf="responseText">Result: {{ responseText }}</p>
+    </div>
+   </div>
+  </div>
+  <div class="btn-wrap">
+  <button (click)="translate()" mat-raised-button>translate</button>
+  </div>
 </form>

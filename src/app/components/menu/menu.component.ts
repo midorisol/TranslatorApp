@@ -9,7 +9,7 @@ import {tap} from "rxjs";
 })
 export class MenuComponent implements OnInit {
   isLoggedIn = false;
-  logoSrc = 'https://cdn-icons-png.flaticon.com/512/281/281776.png'
+  logoSrc = 'assets/Untitled-11.png'
 
   constructor(private loginService: LoginService) { }
 

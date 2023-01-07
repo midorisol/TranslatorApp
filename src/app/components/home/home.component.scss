@@ -1,6 +1,34 @@
 .translate-form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 75%;
+  grid-gap: 20px;
   margin: 24px auto;
+  border-radius: 10px;
+  background: rgb(231,111,81);
+  background: linear-gradient(332deg, rgba(231,111,81,1) 0%, rgba(233,196,106,1) 100%);
+  height:15rem;
+
+}
+
+.first{
+  height: 1rem;
+  padding-bottom: 5rem;
+}
+
+.flex-child {
+  display: grid;
+  flex: 1;
+  margin: 0px auto;
+  max-height: 10rem;
+}
+
+.btn-wrap {
+  margin: 0px auto;
+  text-align: center;
+}
+
+button{
+  background: rgb(231,111,81);
+  background: linear-gradient(332deg, rgba(231,111,81,1) 0%, rgba(233,196,106,1) 100%);
 }
